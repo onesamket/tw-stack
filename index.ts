@@ -1,8 +1,8 @@
 import express from "express";
 import userRouter from "./routes/user.routes";
-import errorMiddleware from "./middleware/error";
+import errorMiddleware from "./middlewares/error";
 import authRouter from "./routes/auth.routes";
-import authMiddleware from "./middleware/auth";
+import authMiddleware from "./middlewares/auth";
 import protectedRouter from "./routes/protected.routes";
 
 const app = express();

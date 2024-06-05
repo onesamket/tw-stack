@@ -1,4 +1,4 @@
-import { type AuthRequest } from "@server/middleware/auth";
+import { type AuthRequest } from "@server/middlewares/auth";
 import { Router, type Response } from "express";
 
 const protectedRouter = Router();

@@ -1,4 +1,4 @@
-import logger from "@server/lib/winston-logger";
+import logger from "@server/libs/winston-logger";
 import type { Request, Response, NextFunction } from "express";
 
 const errorMiddleware = (

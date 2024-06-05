@@ -1,7 +1,7 @@
 import {
   handleServerError,
   handleValidationError,
-} from "@server/lib/helpers/error-tracker";
+} from "@server/libs/helpers/error-tracker";
 import UserModel from "@server/models/user.model";
 import { UserSchema } from "@server/schemas/user.schema";
 import bcrypt from "bcryptjs";

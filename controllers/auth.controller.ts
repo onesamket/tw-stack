@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import {
   handleServerError,
   handleValidationError,
-} from "@server/lib/helpers/error-tracker";
+} from "@server/libs/helpers/error-tracker";
 import UserModel from "@server/models/user.model";
 import { z } from "zod";
 import type { Request, Response } from "express";

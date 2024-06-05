@@ -1,6 +1,6 @@
 import type { User } from "@prisma/client";
-import { prisma } from "@server/lib/prisma-client";
-import logger from "@server/lib/winston-logger";
+import { prisma } from "@server/libs/prisma-client";
+import logger from "@server/libs/winston-logger";
 
 class UserModel {
   static async getAllUsers(): Promise<User[]> {
