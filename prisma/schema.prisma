@@ -8,8 +8,12 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  role  String  @default("USER") // this will be enum  for now let's  set as String because  sqlite has no emun
+  id         Int      @id @default(autoincrement())
+  email      String   @unique
+  name       String
+  password   String
+  resetToken String?
+  role       String   @default("USER") // this will be enum  for now let's  set as String because  sqlite has no emun
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
