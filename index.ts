@@ -1,6 +1,7 @@
 import express from "express";
 import userRouter from "./routes/user.routes";
 import errorMiddleware from "./middleware/error";
+import authRouter from "./routes/auth.routes";
 
 const app = express();
 const port = 8080;
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 
 // register api routes
 app.use("/api/users", userRouter);
+app.use("/api/auth", authRouter);
 
 app.listen(port, () => {
   console.log(`🚀 Server Running on port http://localhost:${port}...`);
