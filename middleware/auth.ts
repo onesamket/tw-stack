@@ -1,32 +1,24 @@
 import type { User } from "@prisma/client";
-import type { Request, Response, NextFunction } from "express";
+import type { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
+const secret = process.env.JWT_SECRET_KEY!;
 export interface AuthRequest extends Request {
   user?: User;
 }
+const authMiddleware = (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  const token = req.headers["authorization"]?.split(" ")[1];
+  if (!token) return res.sendStatus(401);
 
-const authMiddleware = (roles: string[] = []) => {
-  return (req: AuthRequest, res: Response, next: NextFunction) => {
-    const token = req.header("Authorization")?.replace("Bearer ", "");
-
-    if (!token) {
-      return res.status(401).send({ error: "Unauthorized" });
-    }
-
-    try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY!) as User;
-      req.user = decoded;
-
-      if (roles.length && !roles.includes(req.user.role!)) {
-        return res.status(403).send({ error: "Forbidden" });
-      }
-
-      next();
-    } catch (e) {
-      res.status(401).send({ error: "Unauthorized" });
-    }
-  };
+  jwt.verify(token, secret, (err: any, user: any) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
 };
 
 export default authMiddleware;
