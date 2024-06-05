@@ -1,3 +1,5 @@
+# WIP...
+
 # MVC Architecture Starter Kit for React Express Applications
 
 Welcome to the MVC Architecture Starter Kit repository! This starter kit provides a solid foundation for building React Express applications following the Model-View-Controller (MVC) architecture pattern. It includes essential technologies and tools to streamline development and ensure scalability, security, and maintainability.
