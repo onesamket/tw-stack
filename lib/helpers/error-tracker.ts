@@ -5,7 +5,7 @@ import { z } from "zod";
 // Helper function to handle server errors
 export function handleServerError(res: Response, error: Error | any) {
   logger.error(`Server error: ${error.message}`);
-  res.status(500).json({ message: "Internal server error" });
+  res.status(500).json({ message: error.message || "Internal server Error" });
 }
 
 // Helper function to handle validation errors
