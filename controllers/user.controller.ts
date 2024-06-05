@@ -4,8 +4,8 @@ import {
 } from "@server/lib/helpers/error-tracker";
 import UserModel from "@server/models/user.model";
 import { UserSchema } from "@server/schemas/user.schema";
-import type { Request, Response } from "express";
 import bcrypt from "bcryptjs";
+import type { Request, Response } from "express";
 
 const userController = {
   getUsers: async (_req: Request, res: Response) => {
@@ -21,8 +21,14 @@ const userController = {
     try {
       const { name, email, password } = UserSchema.parse(req.body);
       const hashedPassword = await bcrypt.hash(password, 10);
-      const newUser = await UserModel.createUser(name, email, hashedPassword);
-      res.json(newUser);
+
+      const existingUser = await UserModel.getUserByEmail(email);
+      if (existingUser) {
+        res.status(400).json({ message: "Email is already registered" });
+      } else {
+        const newUser = await UserModel.createUser(name, email, hashedPassword);
+        res.status(201).json(newUser);
+      }
     } catch (error) {
       handleValidationError(res, error);
     }
@@ -53,7 +59,11 @@ const userController = {
       }
       const { name, email } = req.body;
       const updatedUser = await UserModel.updateUser(id, name, email);
-      res.json(updatedUser);
+      if (updatedUser) {
+        res.json(updatedUser);
+      } else {
+        res.status(404).json({ message: "User not found" });
+      }
     } catch (error) {
       handleServerError(res, error);
     }
@@ -66,7 +76,11 @@ const userController = {
         return res.status(400).json({ message: "Invalid user ID" });
       }
       const deletedUser = await UserModel.deleteUser(id);
-      res.json(deletedUser);
+      if (deletedUser) {
+        res.json(deletedUser);
+      } else {
+        res.status(404).json({ message: "User not found" });
+      }
     } catch (error) {
       handleServerError(res, error);
     }

@@ -7,12 +7,8 @@ class UserModel {
     try {
       return await prisma.user.findMany();
     } catch (error) {
-      if (error instanceof Error) {
-        logger.error("Error getting all users:", error);
-        throw new Error("Could not retrieve users");
-      } else {
-        throw error;
-      }
+      logger.error("Error getting all users:", error);
+      throw new Error("Could not retrieve users");
     }
   }
 
@@ -26,12 +22,8 @@ class UserModel {
         data: { name, email, password: hashPassword },
       });
     } catch (error) {
-      if (error instanceof Error) {
-        logger.error("Error creating user:", error);
-        throw new Error("Could not create user");
-      } else {
-        throw error;
-      }
+      logger.error("Error creating user:", error);
+      throw new Error("Could not create user");
     }
   }
 
@@ -41,12 +33,19 @@ class UserModel {
         where: { id: parseInt(id, 10) },
       });
     } catch (error) {
-      if (error instanceof Error) {
-        logger.error(`Error getting user with id ${id}:`, error);
-        throw new Error("Could not retrieve user");
-      } else {
-        throw error;
-      }
+      logger.error(`Error getting user with id ${id}:`, error);
+      throw new Error("Could not retrieve user");
+    }
+  }
+
+  static async getUserByEmail(email: string): Promise<User | null> {
+    try {
+      return await prisma.user.findUnique({
+        where: { email },
+      });
+    } catch (error) {
+      logger.error(`Error getting user with email ${email}:`, error);
+      throw new Error("Could not retrieve user");
     }
   }
 
@@ -61,12 +60,8 @@ class UserModel {
         data: { name, email },
       });
     } catch (error) {
-      if (error instanceof Error) {
-        logger.error(`Error updating user with id ${id}:`, error);
-        throw new Error("Could not update user");
-      } else {
-        throw error;
-      }
+      logger.error(`Error updating user with id ${id}:`, error);
+      throw new Error("Could not update user");
     }
   }
 
@@ -76,12 +71,8 @@ class UserModel {
         where: { id: parseInt(id, 10) },
       });
     } catch (error) {
-      if (error instanceof Error) {
-        logger.error(`Error deleting user with id ${id}:`, error);
-        throw new Error("Could not delete user");
-      } else {
-        throw error;
-      }
+      logger.error(`Error deleting user with id ${id}:`, error);
+      throw new Error("Could not delete user");
     }
   }
 }
