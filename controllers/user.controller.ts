@@ -1,7 +1,11 @@
-import { handleServerError, handleValidationError } from "@server/lib/helpers";
+import {
+  handleServerError,
+  handleValidationError,
+} from "@server/lib/helpers/error-tracker";
 import UserModel from "@server/models/user.model";
 import { UserSchema } from "@server/schemas/user.schema";
 import type { Request, Response } from "express";
+import bcrypt from "bcryptjs";
 
 const userController = {
   getUsers: async (_req: Request, res: Response) => {
@@ -15,8 +19,9 @@ const userController = {
 
   createUser: async (req: Request, res: Response) => {
     try {
-      const { name, email } = UserSchema.parse(req.body);
-      const newUser = await UserModel.createUser(name, email);
+      const { name, email, password } = UserSchema.parse(req.body);
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const newUser = await UserModel.createUser(name, email, hashedPassword);
       res.json(newUser);
     } catch (error) {
       handleValidationError(res, error);
