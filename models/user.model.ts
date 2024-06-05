@@ -16,10 +16,14 @@ class UserModel {
     }
   }
 
-  static async createUser(name: string, email: string): Promise<User> {
+  static async createUser(
+    name: string,
+    email: string,
+    hashPassword: string
+  ): Promise<User> {
     try {
       return await prisma.user.create({
-        data: { name, email },
+        data: { name, email, password: hashPassword },
       });
     } catch (error) {
       if (error instanceof Error) {
