@@ -37,7 +37,7 @@ const userController = {
   getUser: async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
-      if (!id || isNaN(parseInt(id, 10))) {
+      if (!id) {
         return res.status(400).json({ message: "Invalid user ID" });
       }
       const user = await UserModel.getUser(id);
@@ -54,7 +54,7 @@ const userController = {
   updateUser: async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
-      if (!id || isNaN(parseInt(id, 10))) {
+      if (!id) {
         return res.status(400).json({ message: "Invalid user ID" });
       }
       const { name, email } = req.body;
@@ -72,7 +72,7 @@ const userController = {
   deleteUser: async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
-      if (!id || isNaN(parseInt(id, 10))) {
+      if (!id) {
         return res.status(400).json({ message: "Invalid user ID" });
       }
       const deletedUser = await UserModel.deleteUser(id);

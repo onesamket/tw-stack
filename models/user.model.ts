@@ -30,7 +30,7 @@ class UserModel {
   static async getUser(id: string): Promise<User | null> {
     try {
       return await prisma.user.findUnique({
-        where: { id: parseInt(id, 10) },
+        where: { id },
       });
     } catch (error) {
       logger.error(`Error getting user with id ${id}:`, error);
@@ -56,7 +56,7 @@ class UserModel {
   ): Promise<User> {
     try {
       return await prisma.user.update({
-        where: { id: parseInt(id, 10) },
+        where: { id },
         data: { name, email },
       });
     } catch (error) {
@@ -68,7 +68,7 @@ class UserModel {
   static async deleteUser(id: string): Promise<User> {
     try {
       return await prisma.user.delete({
-        where: { id: parseInt(id, 10) },
+        where: { id },
       });
     } catch (error) {
       logger.error(`Error deleting user with id ${id}:`, error);
