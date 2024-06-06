@@ -71,7 +71,7 @@ export default function Templates() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <Card className="cursor-pointer  dark:border-gray-800">
+                        <Card className="cursor-pointer  dark:border-gray-700">
                             <CardHeader>
                                 <CardTitle>{template.title}</CardTitle>
                                 <CardDescription>{template.description}</CardDescription>

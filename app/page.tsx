@@ -1,13 +1,14 @@
 import AnimatedText from "@/components/shared/animated-text";
+import Community from "@/components/shared/community";
 import { CopyLinkButton } from "@/components/shared/copy-link";
 import Templates from "@/components/shared/templates";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/components/ui/avatar"
-import { Twitter } from "lucide-react";
+} from "@/components/ui/avatar";
 import Link from "next/link";
+import { FaXTwitter } from "react-icons/fa6";
 export default function HomePAge() {
   return (
     <main className="flex min-h-screen flex-col items-center  gap-5 p-5">
@@ -16,6 +17,10 @@ export default function HomePAge() {
       <CopyLinkButton />
       <section id="templates " className="py-24 my-3">
         <Templates />
+      </section>
+
+      <section id="community " className="py-10 grid gap-6 my-3">
+        <Community />
       </section>
 
       <section id="avatar " className="py-10 grid gap-6 my-3">
@@ -27,7 +32,7 @@ export default function HomePAge() {
           <div className="flex flex-col  items-center">
             <p>Tewodros Birhanu</p>
             <Link className="flex items-center space-x-1 text-indigo-800" href='x.com/onesmaket'>
-              <Twitter className="w-4 h-4 " />
+              <FaXTwitter className="w-4 h-4 " />
               <p>onesamket</p>
             </Link>
           </div>

@@ -26,7 +26,7 @@ export default function Header() {
                 </DropdownMenuContent>
             </DropdownMenu>
             <div className="flex gap-5">
-                <Link href="https://github.com/onesmaket/tw-stack"><Github className="w-4 h-4" /></Link>
+                <Link href="https://github.com/onesamket/tw-stack"><Github className="w-4 h-4" /></Link>
                 {theme === "dark" ? (
                     <Sun className="w-4 h-4 cursor-pointer" onClick={() => setTheme("light")} />
                 ) : (

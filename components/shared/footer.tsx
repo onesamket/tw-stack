@@ -1,4 +1,4 @@
-import { Copyright } from "lucide-react";
+import { BookOpenText, Copyright, Github } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -13,9 +13,15 @@ export default function Footer() {
                 <p> Deployed on Vercel</p>
             </div>
             <div className="flex items-center space-x-2">
-                <Link href='/docs'>Docs</Link>
-                <Link href='https://github.com/onesamket/tw-stack'>Github</Link>
+                <Link className="flex items-center space-x-1" href='/docs'>
+                    <BookOpenText className="w-4 h-4" />
+                    <p>Docs</p>
+                </Link>
+                <Link className="flex items-center space-x-1" href='https://github.com/onesamket/tw-stack'>
+                    <Github className="w-4 h4" />
+                    <p> Github</p>
+                </Link>
             </div>
-        </div>
+        </div >
     );
 }
