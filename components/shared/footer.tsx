@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <div className="z-10 p-10 w-full flex items-center justify-between font-mono text-sm">
+        <div className="z-10 p-10 w-full flex-col md:flex-row flex  items-center justify-between font-mono text-sm">
             <div className="flex gap-2 items-center">
                 <Copyright className="w-3 h-4" />
                 <p> tw-stack {new Date().getFullYear()}</p>
