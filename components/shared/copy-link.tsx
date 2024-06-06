@@ -1,9 +1,10 @@
-"use client"
-import { useState } from "react";
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { CopyIcon, CheckIcon } from "lucide-react";
-import { Label } from "../ui/label";
+import { CheckIcon, CopyIcon } from "lucide-react";
+import { useState } from "react";
 import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 
 export function CopyLinkButton() {
     const [copied, setCopied] = useState(false);
@@ -25,17 +26,17 @@ export function CopyLinkButton() {
         <div className="flex items-center space-x-2">
             <div className="grid flex-1 gap-2">
                 <Label htmlFor="command" className="sr-only">
-                    command
+                    Command
                 </Label>
                 <Input
                     id="command"
-                    defaultValue="$_ npx tw-stack create"
+                    defaultValue="$   npx tw-stack create"
                     readOnly
                 />
             </div>
-            <Button type="button" size="sm" className="px-3 cursor-pointer" onClick={handleCopy}>
+            <Button size='icon' className="px-2 cursor-pointer " onClick={handleCopy}>
                 <span className="sr-only">Copy</span>
-                {copied ? <CheckIcon className="h-4 w-4" /> : <CopyIcon onClick={handleCopy} className="h-4 w-4 " />}
+                {copied ? <CheckIcon className="h-4 w-4" /> : <CopyIcon className="h-4 w-4" />}
             </Button>
         </div>
     );

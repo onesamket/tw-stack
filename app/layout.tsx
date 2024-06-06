@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/shared/header";
+import Footer from "@/components/shared/footer";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -33,7 +34,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Header />
+          <main className="min-h-screen py-6 md:py-8 lg:py-20 ">
+            {children}
+          </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
