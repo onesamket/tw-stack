@@ -15,7 +15,7 @@ export default function Community() {
                 <h3 className="gradient-text text-3xl">Join Our Community</h3>
             </section>
             <section className="grid gap-3 md:grid-cols-4">
-                <Card className="text-center dark:border-gray-700">
+                <Card className="text-center dark:border-gray-800">
                     <CardHeader className=" flex flex-col items-center gap-3 justify-center">
                         <Github className="items-center" size={32} />
                         <CardDescription>Contribute to our projects and stay updated with our repositories.</CardDescription>
