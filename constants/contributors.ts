@@ -5,7 +5,7 @@ export const CONTRIBUTORS = [
     imageSrc: "https://github.com/onesamket.png",
     twitterLink: "https://x.com/onesamket",
     twitterHandle: "onesamket",
-    devType: "Javascript Full-stack Developer",
+    devType: "Javascript Full-stack & App Developer",
   },
   {
     name: "Daniel Masfin ",
@@ -21,7 +21,7 @@ export const CONTRIBUTORS = [
     imageSrc: "https://github.com/asm2212.png",
     twitterLink: "https://x.com/asm2212",
     twitterHandle: "asm2212",
-    devType: "Web  Developer",
+    devType: "Fullstack Engineer | Mobile Developer",
   },
   {
     name: "Natneal Sitotaw",
