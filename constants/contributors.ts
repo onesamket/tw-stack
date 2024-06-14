@@ -31,4 +31,12 @@ export const CONTRIBUTORS = [
     twitterHandle: "natisitotaw",
     devType: "Game and Backend  Developer",
   },
+  {
+    name: "Amanuel Kassahun",
+    githubLink: "https://github.com/amankass",
+    imageSrc: "https://github.com/amankass.png",
+    twitterLink: "https://x.com/Amiko_ad",
+    twitterHandle: "Amiko_ad",
+    devType: "FrontEnd Developer",
+  },
 ];
