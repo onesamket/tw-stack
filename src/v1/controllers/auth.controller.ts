@@ -4,7 +4,7 @@ import {
   handleServerError,
   handleValidationError,
 } from "@server/libs/helpers/error-tracker";
-import UserModel from "@server/models/user.model";
+import UserModel from "@server/src/v1/models/user.model";
 import { z } from "zod";
 import type { Request, Response } from "express";
 

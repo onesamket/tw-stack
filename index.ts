@@ -1,9 +1,9 @@
 import express from "express";
-import userRouter from "./routes/user.routes";
+import userRouter from "./src/v1/routes/user.routes";
 import errorMiddleware from "./middlewares/error";
-import authRouter from "./routes/auth.routes";
+import authRouter from "./src/v1/routes/auth.routes";
 import authMiddleware from "./middlewares/auth";
-import protectedRouter from "./routes/protected.routes";
+import protectedRouter from "./src/v1/routes/protected.routes";
 
 const app = express();
 const port = 8080;

@@ -2,8 +2,8 @@ import {
   handleServerError,
   handleValidationError,
 } from "@server/libs/helpers/error-tracker";
-import UserModel from "@server/models/user.model";
-import { UserSchema } from "@server/schemas/user.schema";
+import UserModel from "@server/src/v1/models/user.model";
+import { UserSchema } from "@server/src/v1/schemas/user.schema";
 import bcrypt from "bcryptjs";
 import type { Request, Response } from "express";
 
